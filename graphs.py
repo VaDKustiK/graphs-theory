@@ -1,14 +1,14 @@
 class Graph:
     def __init__(self):
-        self.edges = []  # Список рёбер (edge list)
-        self.adjacency_list = {}  # Список смежности (adjacency list)
+        self.edges = []  # список рёбер (edge list)
+        self.adjacency_list = {}  # список смежности (adjacency list)
 
     def add_vertex(self, vertex):
         if vertex not in self.adjacency_list:
             self.adjacency_list[vertex] = []
 
     def add_edge(self, start, end, weight):
-        self.edges.append((start, end, weight))  # Добавление в список рёбер
+        self.edges.append((start, end, weight))  # добавление в список рёбер
         if start not in self.adjacency_list:
             self.adjacency_list[start] = []
         self.adjacency_list[start].append((end, weight))
@@ -28,10 +28,9 @@ class Graph:
     def find_edge(self, start, end):
         return next(((s, e, w) for (s, e, w) in self.edges if s == start and e == end), None)
 
-# Пример использования
 graph = Graph()
 graph.add_vertex(1)
 graph.add_vertex(2)
-graph.add_edge(1, 2, 10)  # Добавить ребро с весом 10 между вершинами 1 и 2
+graph.add_edge(1, 2, 10)  # добавить ребро с весом 10 между вершинами 1 и 2
 print("Edges:", graph.edges)
 print("Adjacency List:", graph.adjacency_list)
